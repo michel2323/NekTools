@@ -2633,13 +2633,15 @@ c     This routine computes y = Ax, where A is the graph Laplacian
       real y(1),x(1)
       integer ia(0:1),ja(1),va(1)
 c
+!$OMP PARALLEL DO 
       do i=1,n
          y(i) = 0
          do j=ia(i-1),ia(i)-1
             y(i) = y(i) + va(j)*x(ja(j))
          enddo
       enddo
-      return
+!$OMP END PARALLEL DO
+
       end
 c-----------------------------------------------------------------------
       subroutine ortho1(p,n)

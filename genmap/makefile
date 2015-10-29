@@ -1,4 +1,4 @@
-FLAGS =  $(FFLAGS_IN)
+FLAGS =  $(FFLAGS_IN) -fopenmp
 CFLAGS =  $(CFLAGS_IN)
 LFLAGS = $(LFLAGS_IN)
 prefix = $(bin_nek_tools)
